@@ -8,9 +8,6 @@ gem 'rails', '4.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-#add pagination
-gem 'will_paginate', '~> 3.1'
-gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 # Use SCSS for stylesheets
 
@@ -42,6 +39,11 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+#add pagination
+gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

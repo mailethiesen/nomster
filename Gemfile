@@ -10,6 +10,7 @@ gem 'pg'
 
 #add pagination
 gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 # Use SCSS for stylesheets
 

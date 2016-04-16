@@ -32,13 +32,18 @@ class PlacesController < ApplicationController
     if @place.user != current_user
       return render text: 'Not Allowed, only the user who created this place can update it.', status: :forbidden
     end
-    
+
     @place.update_attributes(place_params)
     redirect_to root_path
   end
 
   def destroy
     @place = Place.find(params[:id])
+
+    if @place.user != current_user
+      return render text: 'Not Allowed, only the user who created this place can delete it.', status: :forbidden
+    end
+
     @place.destroy
     redirect_to root_path
   end

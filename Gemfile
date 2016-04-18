@@ -8,7 +8,9 @@ gem 'rails', '4.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'geocoder'
 
+gem "figaro", ">= 1.0.0"
 # Use SCSS for stylesheets
 
 gem 'bootstrap-sass', '~> 3.3.5.1'

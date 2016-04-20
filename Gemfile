@@ -54,6 +54,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'turbolinks'
 
+gem 'carrierwave'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

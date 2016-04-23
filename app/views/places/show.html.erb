@@ -1,9 +1,30 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
-
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
   <br/><br/>
   <p><%= @place.description %></p>
+  <br />
+
+<!-- carousel -->
+  <div id = "carousel-example-generic" class= "carousel slide" data-ride= "carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <% @place.photos.each do |photo| %>
+        <div class="item">
+        <%= image_tag photo.picture %>
+        </div>
+      <% end %>
+    </div>
+  <!-- Controls -->
+   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+   </a>
+   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+
+</div>
+<!-- carousel -->
 
 
   <% if @place.latitude.present? && @place.longitude.present? %>
@@ -69,12 +90,21 @@
 </div>
 
 <div class ="col-xs-10 col-xs-offset-1">
+
+<!-- Button trigger photo modal -->
+<button class="btn btn-primary btn-lg pull-left" data-toggle="modal" data-target="#photoModal">
+  Add a Photo
+</button>
+
 <h1 class="pull-left">Comments</h1>
 
-<!-- Button trigger modal -->
+<!-- Button trigger comment modal -->
 <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
   Add a comment
 </button>
+
+
+
 </div>
 
 <div class="clear"></div>
@@ -93,18 +123,47 @@
 
   <div class="clear"></div>
 
+  <!-- Photo Modal -->
+<div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="photoModalLabel">Add a Photo</h4>
+      </div>
+
     <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
     <%= f.input :picture %>
     <%= f.input :caption %>
     <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
-  
+  </div>
   <% end %>
-
+  </div>
+</div>
+</div>
+<div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1>Photos</h1>
   <% @place.photos.each do |photo| %>
   <div>
-      <%= image_tag photo.picture %>
+      <%= image_tag photo.picture, :class => 'place-photo img-responsive' %>
       <b><%= photo.caption %></b>
   </div>
   <% end %>
 </div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+ $(function(){
+  $('.carousel').carousel();
+  });
+  $('.item:first').addClass( 'active');
+</script>
+
+
+
+

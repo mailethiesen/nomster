@@ -2,15 +2,17 @@
   <div class="col-xs-4">
     <%= image_tag 'user.png' %>
   </div>
-
-  <div class ="col-xs-8">
+  
+  <div class="col-xs-4 col-sm-6">
     <h1><%= @user.email %></h1>
     <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
     <h3>Total Number of comments: <%= @user.comments.count %>
     <h4>Total Number of five star reviews: <%= @user.comments.where(rating: '5_stars').count %></h4>
   </div>
+  
   <div class="clear"></div>
-</div>
+
+  </div>
 <br /><br />
 <h1 class="text-center">My Comments</h1>
   <br /> <br />

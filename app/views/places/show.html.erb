@@ -10,6 +10,8 @@
   <p><%= @place.description %></p>
   <br />
 
+<% if @place.photos.count > 0 %>
+
 <!-- carousel -->
   <div id = "carousel-example-generic" class= "carousel slide" data-ride= "carousel">
     <!-- Wrapper for slides -->
@@ -32,6 +34,10 @@
 
 <br/>
 <br/>
+
+<% else %>
+<div class="clear"></div>
+<% end %>
 
 <!-- map -->
   <% if @place.latitude.present? && @place.longitude.present? %>
